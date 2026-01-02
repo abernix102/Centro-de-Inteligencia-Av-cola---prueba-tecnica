@@ -6,38 +6,39 @@ import { Header } from "@/components/layout/Header";
 import { kpis, news } from "@/data/mockData";
 import { Suspense } from "react";
 
-
 export default function Home() {
-    return (
-        <main className="min-h-screen p-6 lg:p-10 max-w-400 mx-auto space-y-8">
-            <Header title="MICROSITIO DE INTELIGENCIA AGROPECUARIA"
-                subtitle="Panel de control estratégico para toma de decisiones" />
-            <section className="grid grid-col-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {
-                    kpis.map((kpi) => (
-                        <KPICard
-                            key={kpi.id}
-                            unit={kpi.unit}
-                            description={kpi.description}
-                            label={kpi.label}
-                            value={kpi.value}
-                            trend={kpi.trend}
-                            upward={kpi.upward} 
-                            icon={kpi.icon}/>
-                    ))
-                }
-            </section>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <Suspense fallback={<div className="h-112.5 bg-slate-800 animate-pulse rounded-2xl" />}>
-                    <div className="lg:col-span-2">
-                        <MainChart/>
-                    </div>
-                </Suspense>
-                <aside className="space-y-8">
-                    <AnalysisSection />
-                </aside>
+  return (
+    <main className="min-h-screen p-6 lg:p-10 max-w-8xl mx-auto space-y-8">
+      <Header 
+        title="Micrositio de Inteligencia Agropecuaria"
+        subtitle="Panel de control estratégico para toma de decisiones" 
+      />
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        {kpis.map((kpi) => (
+          <KPICard key={kpi.id} {...kpi} />
+        ))}
+      </section>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="lg:col-span-8 space-y-8">
+          <section>
+            <Suspense fallback={<div className="h-112.5 animate-pulse rounded-2xl" />}>
+                <MainChart />
+            </Suspense>
+          </section>
+          <section>
+             <NewsSection items={news} />
+          </section>
+        </div>
+        <aside className="lg:col-span-4">
+          <div className="sticky top-10 space-y-6">
+            <AnalysisSection />
+            <div className="p-4 bg-blue-50 rounded-xl border border-blue-100 text-sm text-blue-800">
+              Datos actualizados al: <strong>{new Date().toLocaleDateString()}</strong>
             </div>
-            <NewsSection items={news}/>
-        </main>
-    );
+          </div>
+        </aside>
+
+      </div>
+    </main>
+  );
 }

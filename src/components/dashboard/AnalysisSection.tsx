@@ -37,7 +37,7 @@ export const AnalysisSection = () => {
     return (
         <div className="bg-slate-900/50 border border-slate-800 rounded-2xl p-6">
             <div className='flex items-center justify-between mb-6'>
-                <h2 className="text-sm font-bold text-white uppercase tracking-widest">Documentos de Análisis</h2>
+                <h2 className="text-sm font-bold text-white uppercase tracking-widest">Análisis y Reportes</h2>
                 <Button variant='ghost' size='sm' className='text-blue-400 hover:text-blue-300'>
                     ver todos
                 </Button>
