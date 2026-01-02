@@ -30,11 +30,10 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <Suspense fallback={<div className="h-112.5 bg-slate-800 animate-pulse rounded-2xl" />}>
                     <div className="lg:col-span-2">
-                        <MainChart title="Historico de precios" />
+                        <MainChart title="Tablero de Análisis" />
                     </div>
                 </Suspense>
                 <aside className="space-y-8">
-                    {/* Componentes de apoyo separados */}
                     <AnalysisSection />
                 </aside>
             </div>

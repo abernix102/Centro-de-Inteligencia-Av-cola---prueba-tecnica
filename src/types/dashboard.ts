@@ -10,11 +10,13 @@ export interface KPI {
   upward: boolean;
   icon: LucideIcon;     
 }
-export interface  NewsItem {
-    id: number;
-  title: string;
-  source: string;
+export interface NewsItem {
+  id: number;
   date: string;
+  category: string;
+  title: string;
+  excerpt: string; 
+  source: string;
 }
 
 
