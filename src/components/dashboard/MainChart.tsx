@@ -30,7 +30,7 @@ const chartData = {
 
 type TabType = 'produccion' | 'precios' | 'comercio';
 
-export const MainChart = () => {
+export const MainChart = ( ) => {
   const [activeTab, setActiveTab] = useState<TabType> ('produccion');
 
   const yAxisFormatter = (value: number) => {
@@ -45,7 +45,7 @@ export const MainChart = () => {
         <div className="flex items-center gap-2 text-slate-800 dark:text-slate-300">
           <BarChart3 size={18} className="text-blue-500" />
           <span className="text-sm font-bold uppercase tracking-widest">
-            Tendencias de
+            Tablero de Análisis
           </span>
         </div>
 
