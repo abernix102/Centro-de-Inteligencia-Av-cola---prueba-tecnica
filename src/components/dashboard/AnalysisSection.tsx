@@ -56,10 +56,10 @@ export const AnalysisSection = () => {
                             </div>
                             <p className='text-xs text-muted-foreground mt-1'>{doc.date}</p>
                             </div>
-                        </div>
-                        <button className="p-2 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors">
+                        </div> 
+                        <Button variant={"outline"} size={"sm"} className="p-2 hover:bg-slate-700 rounded-lg text-slate-400 hover:text-white transition-colors">
                             <Download size={16} />
-                        </button>
+                        </Button>
                     </div>
                 ))}
             </div>

@@ -21,7 +21,6 @@ export const KPICard = memo(({
         </div>
       </div>
 
-      {/* Fila Media: Label y Valor */}
       <div className="space-y-1">
         <p className="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-tight">
           {label}
@@ -38,7 +37,7 @@ export const KPICard = memo(({
         </div>
       </div>
 
-      {/* Fila Inferior: Descripción */}
+  
       {description && (
         <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-2">
           {description}

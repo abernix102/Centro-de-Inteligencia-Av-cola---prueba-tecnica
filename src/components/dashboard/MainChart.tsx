@@ -1,9 +1,9 @@
 "use client";
 import { BarChart3 } from 'lucide-react';
+import { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Button } from '../ui/button';
 
-
-// 1. Definimos los sets de datos para cada pestaña
 const chartData = {
   produccion: [
     { name: 'Lun', huevo: 2100, pollo: 3500 },
@@ -31,7 +31,13 @@ const chartData = {
 type TabType = 'produccion' | 'precios' | 'comercio';
 
 export const MainChart = () => {
+  const [activeTab, setActiveTab] = useState<TabType> ('produccion');
 
+  const yAxisFormatter = (value: number) => {
+    if(activeTab === 'precios') return `$${value}`
+    if(activeTab === "produccion") return `$${value}`
+    return value.toString();  
+  }
 
   return (
     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
@@ -44,7 +50,11 @@ export const MainChart = () => {
         </div>
 
         <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
-        {[  ]
+        {(['produccion', 'precios', 'comercio'] as TabType[]).map((tab) => (
+          <Button size='sm' onClick={() => setActiveTab(tab)} variant={activeTab === tab ? 'primary' : 'ghost'} key={tab} className={`capitalize ${activeTab === tab ? '' : 'text-slate-500 hover:text-slate-700'}`}>
+            {tab}
+          </Button>
+        ))
 
         }
         </div>
