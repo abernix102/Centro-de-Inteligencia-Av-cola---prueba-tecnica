@@ -1,20 +1,37 @@
-# Micrositio de Inteligencia Agropecuaria - Panel Estratégico
+# Micrositio de Inteligencia Agropecuaria 🥚🐔
 
-Este proyecto es una propuesta técnica para la visualización de datos críticos del sector avícola en México, diseñada específicamente para tomadores de decisiones.
+Prueba técnica para el desarrollo de un panel de control estratégico (Dashboard) enfocado en la toma de decisiones para la industria del huevo y pollo en México.
 
-## 🛠️ Stack Tecnológico
-- **Framework:** Next.js 15+ (App Router)
-- **Lenguaje:** TypeScript (Tipado estricto para modelos de datos)
-- **Estilos:** Tailwind CSS (Diseño responsive y modo oscuro)
-- **Gráficos:** Recharts (Visualización de datos interactiva)
-- **Iconografía:** Lucide React
+🔗 **Demo Online:** [https://centro-de-inteligencia-av-cola-prue.vercel.app/](https://centro-de-inteligencia-av-cola-prue.vercel.app/)
 
-## 🚀 Decisiones Técnicas
-- **Componentes Atómicos:** Se crearon componentes base (`Button`, `Badge`, `KPICard`) para asegurar la consistencia visual y facilitar la escalabilidad.
-- **Rendimiento:** Implementación de `React.memo` en componentes de alta repetición (KPIs) para optimizar los re-renderizados.
-- **Arquitectura de Datos:** La data está desacoplada en `src/data`, permitiendo una transición inmediata de Mock Data a una API real (Node.js/MongoDB).
+## 📋 Descripción del Proyecto
 
-## 📦 Instalación
-1. Clonar el repo: `git clone`
-2. Instalar dependencias: `npm install`
-3. Correr local: `npm run dev`
+Este micrositio fue diseñado como un "Single Page Dashboard". El objetivo principal es reducir la carga cognitiva de los directivos, presentando 5 KPIs críticos, tendencias de mercado interactivas, noticias relevantes y documentos de análisis en una sola vista unificada.
+
+### Características Principales
+- **Arquitectura Modular:** Componentes reutilizables y tipados estrictamente.
+- **Visualización de Datos:** Gráficas interactivas con `Recharts` (Producción, Precios, Comercio).
+- **Diseño Responsivo:** Adaptado para consumo en escritorio y dispositivos móviles .
+- **Performance:** Uso de Server Components por defecto y Client Components solo donde es necesario.
+
+## 🛠 Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Lenguaje:** TypeScript
+- **Estilos:** Tailwind CSS
+- **Gráficos:** Recharts
+- **Iconos:** Lucide React
+- **Deploy:** Vercel
+
+## 📂 Estructura del Proyecto
+
+El proyecto sigue una estructura semántica y escalable:
+
+```bash
+├── components/
+│   ├── dashboard/   # Componentes específicos del negocio (KPIs, Charts, News)
+│   ├── layout/      # Header y estructura base
+│   └── ui/          # Componentes primitivos de interfaz (Buttons, Badges)
+├── data/            # Mock Data separado para fácil transición a API real
+├── types/           # Definiciones de TypeScript e interfaces
+└── app/             # Rutas y Layout principal (Next.js App Router)
