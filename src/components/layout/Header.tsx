@@ -1,6 +1,7 @@
+"use client";
 import { RefreshCw, Clock } from "lucide-react";
 import { Button } from "../ui/button";
-import Image from "next/image"; // Importante para optimización
+import Image from "next/image";
 
 interface Props {
   title: string;
@@ -11,21 +12,26 @@ export const Header = ({ title, subtitle }: Props) => {
   return (
     <header className="flex flex-col md:flex-row md:items-center justify-between py-4 pt-0 px-1 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition-colors">
       {/* Lado Izquierdo: Logo y Títulos */}
-      <div className="flex items-center gap-4">
-        {/* Contenedor del Logo */}
-        <div className="h-12 w-12 shrink-0 border border-slate-200 dark:border-slate-700 rounded-md flex items-center justify-center bg-white dark:bg-slate-800 overflow-hidden">
-           <img 
-            src="/una-uni-n-nacional-de-avicultores-logo-blue-profes.jpg" 
-            alt="Logo UNA" 
-            className="h-full w-full object-contain"
+      <div className="flex items-center gap-6"> 
+        {/* Contenedor del Logo ajustado para formato horizontal */}
+        <div className="relative h-14 w-48 shrink-0 flex items-center justify-center overflow-hidden">
+          <Image 
+            src="/una_all_n.png" 
+            alt="Logo Unión Nacional de Avicultores" 
+            fill
+            className="object-contain object-left"
+            priority
           />
         </div>
         
+        {/* Línea divisoria decorativa (opcional, queda muy profesional) */}
+        <div className="hidden md:block h-8 w-[1px] bg-slate-200 dark:bg-slate-700" />
+
         <div className="flex flex-col">
-          <h1 className="text-base md:text-lg font-bold tracking-tight text-slate-900 dark:text-white leading-tight uppercase">
+          <h1 className="text-base md:text-lg font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight uppercase">
             {title}
           </h1>
-          <p className="text-slate-500 dark:text-slate-400 text-[11px] md:text-xs font-medium">
+          <p className="text-slate-500 dark:text-slate-400 text-[11px] md:text-xs font-medium italic">
             {subtitle}
           </p>
         </div>
@@ -36,13 +42,13 @@ export const Header = ({ title, subtitle }: Props) => {
         {/* Badge "En línea" */}
         <div className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-emerald-200 bg-emerald-50 dark:bg-emerald-900/20 dark:border-emerald-800/50 text-emerald-600 dark:text-emerald-400">
           <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="text-[11px] font-bold">En línea</span>
+          <span className="text-[11px] font-bold uppercase tracking-wider">En línea</span>
         </div>
 
-        {/* Hora */}
-        <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
-          <Clock size={14} />
-          <span className="text-[12px] font-medium">
+        {/* Hora con formato dinámico */}
+        <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 px-3 py-1 rounded-md border border-slate-100 dark:border-slate-700">
+          <Clock size={14} className="text-blue-500" />
+          <span className="text-[12px] font-bold tabular-nums">
             {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
           </span>
         </div>
@@ -51,10 +57,11 @@ export const Header = ({ title, subtitle }: Props) => {
         <Button 
           variant="ghost" 
           size="sm" 
-          className="text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex gap-2 h-8"
+          onClick={() => window.location.reload()}
+          className="text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex gap-2 h-9 border border-transparent hover:border-slate-200"
         >
           <RefreshCw size={14} className="text-slate-400" />
-          <span className="text-[12px] font-bold">Actualizar</span>
+          <span className="text-[12px] font-bold">Refrescar</span>
         </Button>
       </div>
     </header>
