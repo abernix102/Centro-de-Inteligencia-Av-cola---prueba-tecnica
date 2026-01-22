@@ -1,6 +1,7 @@
 import { AnalysisSection } from "@/components/dashboard/AnalysisSection";
 import { KPICard } from "@/components/dashboard/KPICard";
 import { MainChart } from "@/components/dashboard/MainChart";
+import { MarketTrafficLight } from "@/components/dashboard/MarketTrafficLight";
 import { NewsSection } from "@/components/dashboard/NewsSection";
 import { Header } from "@/components/layout/Header";
 import { kpis, news } from "@/data/mockData";
@@ -20,6 +21,7 @@ export default function Home() {
       </section>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         <div className="lg:col-span-8 space-y-8">
+          <MarketTrafficLight/>
           <section>
             <Suspense fallback={<div className="h-112.5 animate-pulse rounded-2xl" />}>
                 <MainChart />
